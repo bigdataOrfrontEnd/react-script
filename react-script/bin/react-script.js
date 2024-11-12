@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-console.log("进入脚手架中");
+const path=require('path')
+const yargs=require('yargs')
+const chalk=require('chalk')
