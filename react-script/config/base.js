@@ -16,7 +16,8 @@ let config = {
   },
   module: {},
   plugins: [
-    new webpack.HotModuleReplacementPlugin(), // 启用 HMR 插件
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
         template: path.resolve(process.cwd(),'app/index.html'),
        
