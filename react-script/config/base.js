@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 在此处指定 babel-loader 的路径
+const babelLoaderPath = path.resolve(__dirname, 'node_modules', 'babel-loader');
 let config = {
   entry: [
     "react-script/node_modules/webpack-hot-middleware/client?reload=true",
@@ -17,11 +19,32 @@ let config = {
 
   mode: "development",
   module: {
-    rules: [{
-      loader: 'babel-loader',
-      test: '/\.(js|jsx)$/',
-      exclude: /node_modules/
-    }]
+    rules: [
+      {
+        test: /\.tsx?$/,  // 匹配 .ts 和 .tsx 文件
+        // exclude: /node_modules/,
+        use: {
+          loader: babelLoaderPath,  // 使用脚手架中的 babel-loader
+          options: {
+            presets: [
+              "@babel/preset-env",  // 支持最新的 JavaScript 特性
+              "@babel/preset-react", // 支持 JSX 语法
+              "@babel/preset-typescript", // 支持 TypeScript
+            ],
+          },
+        },
+      },
+      {
+        test: /\.js$/,
+        // exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: babelLoaderPath,  // 使用脚手架中的 babel-loader
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
