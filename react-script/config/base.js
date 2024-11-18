@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 let config = {
   entry: [
-    "./react-script/node_modules/webpack-hot-middleware/client?reload=true",
+    "react-script/node_modules/webpack-hot-middleware/client?reload=true",
     "./app/index.ts",
   ],
   output: {
@@ -14,14 +14,22 @@ let config = {
   resolve: {
     extensions: [".js", ".json", ".jsx", ".ts"],
   },
-  module: {},
+
+  mode: "development",
+  module: {
+    rules: [{
+      loader: 'babel-loader',
+      test: '/\.(js|jsx)$/',
+      exclude: /node_modules/
+    }]
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-        template: path.resolve(process.cwd(),'app/index.html'),
-       
-      }),
+      template: path.resolve(process.cwd(), 'app/index.html'),
+
+    }),
   ],
 };
 module.exports = config;

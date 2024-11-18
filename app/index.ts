@@ -1,1 +1,1 @@
-console.log("114332234333");
+import('./page/index');
