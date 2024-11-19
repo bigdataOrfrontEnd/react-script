@@ -17,7 +17,11 @@ const app = express();
 // });
 const compiler = webpack(config)
 //自动更新编译代码中间件
-const devMiddleWare = require('webpack-dev-middleware')(compiler,{});
+const devMiddleWare = require('webpack-dev-middleware')(compiler, {
+  stats: {
+    colors: true,
+    chunks: false,
+  },});
 //自动刷新浏览器中间件
 const hotMiddleWare = require('webpack-hot-middleware')(compiler);
 //调用2个中间件

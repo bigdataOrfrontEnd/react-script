@@ -1,8 +1,11 @@
 import { createRoot } from 'react-dom/client';
+import React from "react"
 
-// 清除现有的 HTML 内容
-document.body.innerHTML = '<div id="app"></div>';
-
-// 渲染你的 React 组件
- createRoot(document.getElementById('app')).render(<h1>Hello, world</h1>);;
-// root.render(<h1>Hello, world</h1>);
+function NavigationBar() {
+    // TODO: 实际实现一个导航栏
+    return <h1>Hello from React!</h1>;
+  }
+  
+  const domNode = document.getElementById('navigation');
+  const root = createRoot(domNode);
+  root.render(<NavigationBar />);
