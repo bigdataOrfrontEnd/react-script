@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ES6",                  // 指定 ECMAScript 的版本
+      "module": "ES6",                  // 指定模块类型
+      "jsx": "react",               // 开启 JSX 支持
+      "strict": true,                   // 启用严格模式
+      "esModuleInterop": true,          // 使 CommonJS 和 ES 模块兼容
+      "skipLibCheck": true,             // 跳过库文件的类型检查
+      "moduleResolution": "node",      // 按照 Node.js 模块解析逻辑查找模块
+      "forceConsistentCasingInFileNames": true // 文件名一致性检查
+    },
+    "include": [
+      "app",                            // 指定包含的源代码目录
+      "global.d.ts"                     // 如果有类型声明文件，可以加入 include
+    ],
+    "exclude": [
+      "node_modules"                    // 排除 node_modules 目录
+    ]
+  }
+  
