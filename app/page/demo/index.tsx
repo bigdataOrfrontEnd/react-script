@@ -1,10 +1,14 @@
 import React from "react";
-import styles from './index.scss'
+// 在 SCSS 文件中，通常没有默认导出，因此需要使用
+//  import * as styles from 
+// './index.scss' 这种方式来导入所有样式
+import * as styles from './index.scss'
 import { Button } from "antd";
-console.log(styles);
+
 
 // import './index.css'
 function NavigationBar() {
+  console.log(styles);
   // TODO: 实际实现一个导航栏
   return (
     <div>
